@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js"></script>
+</head>
+<body>
+    <canvas id="backgroundCanvas"></canvas>
+    <header>
+        <nav class="navbar">
+            <a href="#about" class="nav-link">O mně</a>
+            <a href="#projects" class="nav-link">Projekty</a>
+            <a href="#contact" class="nav-link">Kontakt</a>
+        </nav>
+        
+    </header>
+
+    <section id="about">
+        <div class="about-container">
+            <div class="about-photo"></div> <!-- Místo pro profilovou fotku -->
+            <div class="about-content">
+                <h1>Zdravím! Mé jméno je <span class="gradient-text">Jakub Bednář</span></h1>
+                <h4>Jsem studentem 3. ročníku <span class="gradient-highlight">Střední průmyslové školy Zlín v oboru elektrotechnika</span> 
+                   a programování se věnuji od začátku roku.</h4>
+                <h4>Nejvíce mě baví <span class="gradient-highlight">backend vývoj v C#</span>, ale občas si zkusím i frontend.</h4>
+                <h4>Ve škole pracuji s <span class="gradient-highlight">Arduinem</span>, což mě hodně baví, protože propojuje programování s hardwarem. 
+                   Aktivně využívám umělou inteligenci při svých projektech.</h4>
+                <h4>Momentálně se soustředím na <span class="gradient-highlight">zdokonalování v C#</span> a zkoumání možností backendového vývoje.
+                   Mým cílem je získat co nejvíce zkušeností a dostat se k pokročilejším projektům.</h4>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Moje Projekty</h2>
+    
+        <div class="projects-grid">
+            <!-- Každý projekt -->
+            <div class="project-card">
+                <img src="images/image.jfif" alt="Projekt 1">
+                <h3>Finanční aplikace</h3>
+                <p>Aplikace pro správu osobních financí.</p>
+            </div>    
+            <div class="project-card">
+                <img src="images/image.jfif" alt="Projekt 4">
+                <h3>Správce knihovny</h3>
+                <p>Program pro organizaci osobní knihovny.</p>
+            </div>
+            <div class="project-card">
+                <img src="images/image.jfif" alt="Projekt 5">
+                <h3>WeatherApp</h3>
+                <p>Předpověď počasí pomocí API.</p>
+            </div>
+
+            <div class="project-card hidden">
+                <img src="images/image.jfif" alt="Projekt 1">
+                <h3>Finanční aplikace</h3>
+                <p>Aplikace pro správu osobních financí.</p>
+            </div>    
+            <div class="project-card hidden">
+                <img src="images/image.jfif" alt="Projekt 4">
+                <h3>Správce knihovny</h3>
+                <p>Program pro organizaci osobní knihovny.</p>
+            </div>
+            <div class="project-card hidden">
+                <img src="images/image.jfif" alt="Projekt 5">
+                <h3>WeatherApp</h3>
+                <p>Předpověď počasí pomocí API.</p>
+            </div>
+        </div>
+    
+        <button id="showMoreBtn">Zobrazit více</button>
+    </section>
+    
+
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Kontaktujte mě</h2>
+            <form id="contactForm" class="contact-form" method="POST" action="sendmail.php">
+                <input type="text" name="name" placeholder="Vaše jméno" required>
+                <input type="email" name="email" placeholder="Váš e-mail" required>
+                <textarea name="message" placeholder="Vaše zpráva" required></textarea>
+                <button type="submit">Odeslat</button>
+            </form>
+            
+            <p id="message"></p>
+    
+            <div class="social-icons">
+                <a href="https://github.com/JakBednar" target="_blank" aria-label="GitHub">
+                    <img src="assets/github.svg" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/jakub-bedn%C3%A1%C5%99-017422355/" target="_blank" aria-label="LinkedIn">
+                    <img src="assets/linkedin.svg" alt="LinkedIn">
+                </a>
+                <a href="https://www.instagram.com/jakbednar/" aria-label="E-mail">
+                    <img src="assets/instagram.svg" alt="Email">
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    
+    <script src="background.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
