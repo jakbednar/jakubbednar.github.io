@@ -1,7 +1,7 @@
 let particles = [];
 let maxDistance = 120;
 let numParticles = 150;
-let particleColor = "#ff8c00"; // Výchozí barva
+let particleColor = "#0dcaf0"; // Výchozí barva
 let targetColor = particleColor; // Barva, na kterou přecházíme
 let lerpFactor = 0.05; // Rychlost přechodu
 
