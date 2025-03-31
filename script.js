@@ -1,50 +1,45 @@
 const projects = [
   {
-    title: "Správa knihovny",
-    image: "images/image.jfif",
-    description: "Konzolová aplikace pro správu osobní knihovny s databází v C#.",
-    github: "https://github.com/jakbednar/sprava-knihovny",
-    details: `
-      <h3>Jak projekt funguje</h3>
-      <p>
-        Aplikace umožňuje přidávat, vyhledávat a mazat knihy pomocí jednoduchého textového rozhraní.
-        Data se ukládají do SQLite databáze. Uživatelské akce probíhají přes textové menu.
-      </p>
+  title: "Weather App",
+  image: "images/image.jfif",
+  description: "Konzolová aplikace v C# pro zobrazení aktuálního počasí pomocí WeatherAPI.",
+  github: "https://github.com/jakbednar/WeatherApp",
+  details: `
+    <h3>Jak projekt funguje</h3>
+    <p>
+      Jednoduchá konzolová aplikace v jazyce C#, která umožňuje uživateli zadat název města a zobrazit aktuální meteorologické informace.
+      Data jsou získávána z <a href="https://www.weatherapi.com/" target="_blank">WeatherAPI</a> a zpracována ve formátu JSON.
+    </p>
 
-      <h3>Ukázka výstupu</h3>
-      <pre>
-=== Správa knihovny ===
-1. Přidat knihu
-2. Vypsat všechny knihy
-3. Vyhledat podle autora
-0. Konec
-      </pre>
-    `
-  },
-  {
-    title: "Finanční manažer",
-    image: "images/image.jfif",
-    description: "Nástroj pro sledování výdajů, úspor a rozpočtů v reálném čase.",
-    github: "https://github.com/jakbednar/financni-manazer"
-  },
-  {
-    title: "Weather App",
-    image: "images/image.jfif",
-    description: "Jednoduchá desktopová aplikace napojená na WeatherAPI pro předpověď počasí.",
-    github: "https://github.com/jakbednar/weather-app"
-  },
-  {
-    title: "Neurální síť na rozpoznávání tvarů",
-    image: "images/image.jfif",
-    description: "WinForms aplikace s ML.NET pro rozpoznávání ručně nakreslených tvarů.",
-    github: "https://github.com/jakbednar/rozpoznavani-tvaru"
-  },
-  {
-    title: "E-shop simulátor",
-    image: "images/image.jfif",
-    description: "Tréninkový desktopový e-shop v C# s košíkem a objednávkami.",
-    github: "https://github.com/jakbednar/eshop-simulator"
-  }
+    <h3>Funkce aplikace</h3>
+    <ul>
+      <li>Načtení názvu města od uživatele</li>
+      <li>Volání API a zpracování odpovědi</li>
+      <li>Zobrazení údajů jako:</li>
+      <ul>
+        <li>Název města, region a stát</li>
+        <li>Čas poslední aktualizace počasí</li>
+        <li>Aktuální teplota a pocitová teplota</li>
+        <li>Stav počasí (jasno, oblačno, déšť...)</li>
+        <li>Rychlost větru</li>
+        <li>UV index</li>
+      </ul>
+    </ul>
+
+    <h3>Ukázka výstupu</h3>
+    <pre>
+Zadej název města: Brno
+
+Brno, South Moravian, Czech Republic
+Čas: 26.03.2025 – 14:35
+Teplota: 12.3°C
+Pocitová teplota: 10.7°C
+Vítr: 13 km/h
+Počasí: Zataženo
+UV index: 3
+    </pre>
+  `
+}
 ];
 
 const projectList = document.getElementById("project-list");
@@ -83,11 +78,13 @@ function openModal(proj) {
 
 document.querySelector(".close-btn").addEventListener("click", () => {
   document.getElementById("project-modal").style.display = "none";
+  document.body.style.overflow = "";
 });
 
 window.addEventListener("click", (e) => {
   if (e.target.id === "project-modal") {
     document.getElementById("project-modal").style.display = "none";
+    document.body.style.overflow = "";
   }
 });
 
