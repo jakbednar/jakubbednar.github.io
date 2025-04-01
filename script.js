@@ -1,33 +1,33 @@
 const projects = [
   {
-  title: "Weather App",
-  image: "images/image.jfif",
-  description: "Konzolová aplikace v C# pro zobrazení aktuálního počasí pomocí WeatherAPI.",
-  github: "https://github.com/jakbednar/WeatherApp",
-  details: `
-    <h3>Jak projekt funguje</h3>
-    <p>
-      Jednoduchá konzolová aplikace v jazyce C#, která umožňuje uživateli zadat název města a zobrazit aktuální meteorologické informace.
-      Data jsou získávána z <a href="https://www.weatherapi.com/" target="_blank">WeatherAPI</a> a zpracována ve formátu JSON.
-    </p>
+    title: "Weather App",
+    image: "images/image.jfif",
+    description: "Konzolová aplikace v C# pro zobrazení aktuálního počasí pomocí WeatherAPI.",
+    github: "https://github.com/jakbednar/WeatherApp",
+    details: `
+      <h3>Jak projekt funguje</h3>
+      <p>
+        Jednoduchá konzolová aplikace v jazyce C#, která umožňuje uživateli zadat název města a zobrazit aktuální meteorologické informace.
+        Data jsou získávána z <a href="https://www.weatherapi.com/" target="_blank">WeatherAPI</a> a zpracována ve formátu JSON.
+      </p>
 
-    <h3>Funkce aplikace</h3>
-    <ul>
-      <li>Načtení názvu města od uživatele</li>
-      <li>Volání API a zpracování odpovědi</li>
-      <li>Zobrazení údajů jako:</li>
+      <h3>Funkce aplikace</h3>
       <ul>
-        <li>Název města, region a stát</li>
-        <li>Čas poslední aktualizace počasí</li>
-        <li>Aktuální teplota a pocitová teplota</li>
-        <li>Stav počasí (jasno, oblačno, déšť...)</li>
-        <li>Rychlost větru</li>
-        <li>UV index</li>
+        <li>Načtení názvu města od uživatele</li>
+        <li>Volání API a zpracování odpovědi</li>
+        <li>Zobrazení údajů jako:</li>
+        <ul>
+          <li>Název města, region a stát</li>
+          <li>Čas poslední aktualizace počasí</li>
+          <li>Aktuální teplota a pocitová teplota</li>
+          <li>Stav počasí (jasno, oblačno, déšť...)</li>
+          <li>Rychlost větru</li>
+          <li>UV index</li>
+        </ul>
       </ul>
-    </ul>
 
-    <h3>Ukázka výstupu</h3>
-    <pre>
+      <h3>Ukázka výstupu</h3>
+      <pre>
 Zadej název města: Brno
 
 Brno, South Moravian, Czech Republic
@@ -37,9 +37,9 @@ Pocitová teplota: 10.7°C
 Vítr: 13 km/h
 Počasí: Zataženo
 UV index: 3
-    </pre>
-  `
-}
+      </pre>
+    `
+  }
 ];
 
 const projectList = document.getElementById("project-list");
@@ -57,6 +57,7 @@ function renderProjects() {
       <h3>${proj.title}</h3>
       <p>${proj.description}</p>
     `;
+    addGitHubTimestamps(proj.github, div);
     div.addEventListener("click", () => openModal(proj));
     projectList.appendChild(div);
   }
@@ -66,15 +67,88 @@ function renderProjects() {
   }
 }
 
+function addGitHubTimestamps(repoUrl, cardElement) {
+  const repoPath = repoUrl.replace("https://github.com/", "");
+  fetch(`https://api.github.com/repos/${repoPath}`)
+    .then(response => response.json())
+    .then(data => {
+      const created = new Date(data.created_at).toLocaleDateString("cs-CZ");
+      const updated = new Date(data.updated_at).toLocaleString("cs-CZ", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "project-date-wrapper";
+
+      const createdEl = document.createElement("span");
+      createdEl.textContent = `Vytvořeno: ${created}`;
+
+      const updatedEl = document.createElement("span");
+      updatedEl.textContent = ` | Naposledy upraveno: ${updated}`;
+
+      wrapper.appendChild(createdEl);
+      wrapper.appendChild(updatedEl);
+
+      cardElement.appendChild(wrapper);
+    })
+    .catch(err => console.error("Chyba při načítání dat z GitHubu:", err));
+}
+
 function openModal(proj) {
+  const modalTitle = document.getElementById("modal-title");
+  modalTitle.parentElement.querySelectorAll(".project-date-wrapper").forEach(el => el.remove());
+
   document.getElementById("modal-title").textContent = proj.title;
   document.getElementById("modal-description").textContent = proj.description;
   document.getElementById("modal-image").src = proj.image;
   document.getElementById("modal-github").href = proj.github || "#";
-  document.getElementById("modal-details").innerHTML = proj.details || "";
+
+  const detailsEl = document.getElementById("modal-details");
+  detailsEl.innerHTML = proj.details || "";
+
+  fetch(`https://api.github.com/repos/${proj.github.replace("https://github.com/", "")}`)
+    .then(response => response.json())
+    .then(data => {
+      const created = new Date(data.created_at).toLocaleString("cs-CZ", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      const updated = new Date(data.updated_at).toLocaleString("cs-CZ", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+      });
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "project-date-wrapper";
+
+      const createdEl = document.createElement("span");
+      createdEl.textContent = `Vytvořeno: ${created}`;
+
+      const updatedEl = document.createElement("span");
+      updatedEl.textContent = ` | Naposledy upraveno: ${updated}`;
+
+      wrapper.appendChild(createdEl);
+      wrapper.appendChild(updatedEl);
+
+      const titleEl = document.getElementById("modal-title");
+      titleEl.insertAdjacentElement("afterend", wrapper);
+    });
+
   document.getElementById("project-modal").style.display = "flex";
   document.body.style.overflow = "hidden";
 }
+
 
 document.querySelector(".close-btn").addEventListener("click", () => {
   document.getElementById("project-modal").style.display = "none";
@@ -95,12 +169,6 @@ showMoreBtn.addEventListener("click", () => {
 
 renderProjects();
 
-document.getElementById("close-modal-btn").addEventListener("click", () => {
-  document.getElementById("project-modal").style.display = "none";
-  document.body.style.overflow = "";
-});
-
-// Navigace aktivní sekce
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -123,7 +191,6 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// Formulář
 const form = document.getElementById("contact-form");
 const status = document.getElementById("form-status");
 
