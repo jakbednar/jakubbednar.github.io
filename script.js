@@ -1,6 +1,6 @@
 const projects = [
   {
-    title: "Weather App",
+    title: "Weather - Konzole",
     image: "images/image.jfif",
     description: "Konzolová aplikace v C# pro zobrazení aktuálního počasí pomocí WeatherAPI.",
     github: "https://github.com/jakbednar/WeatherApp",
@@ -37,6 +37,30 @@ Pocitová teplota: 10.7°C
 Vítr: 13 km/h
 Počasí: Zataženo
 UV index: 3
+      </pre>
+    `
+  },
+  {
+    title: "Knihovna - WebApp",
+    image: "https://github.com/user-attachments/assets/c8bc7b29-0460-42a7-9757-3f3aa228099d",
+    description: "Webová aplikace v Blazor WebAssembly pro správu knih – přidávání, úprava, mazání a vyhledávání.",
+    github: "https://github.com/jakbednar/KnihovnaWeb",
+    details: `
+      <h3>Jak projekt funguje</h3>
+      <p>
+        Jednoduchá webová aplikace vytvořená v <strong>Blazor WebAssembly</strong>, která umožňuje správu knih.
+        Každá kniha má název, autora a jedinečné ID. Aplikace podporuje přidávání, úpravy i mazání knih
+        a navíc nabízí vyhledávání podle názvu.
+      </p>
+  
+      <h3>Funkce aplikace</h3>
+      <ul>
+        <li>Přidávání nových knih</li>
+        <li>Úprava knih přímo v kartě</li>
+        <li>Odstraňování knih ze seznamu</li>
+        <li>Vyhledávání podle názvu (case-insensitive)</li>
+        <li>Responzivní zobrazení knih jako karet</li>
+      </ul>
       </pre>
     `
   }
