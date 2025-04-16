@@ -63,7 +63,36 @@ UV index: 3
       </ul>
       </pre>
     `
-  }
+  },
+    {
+        title: "Daily Planner - Blazor WebApp",
+        image: "images/image.jfif",
+        description: "Webová aplikace postavená na Blazor WebAssembly pro plánování každodenních úkolů.",
+        github: "https://github.com/jakbednar/DailyPlanner",
+        details: `
+    <h3>O projektu</h3>
+    <p>
+      Aplikace <strong>Daily Planner</strong> slouží k evidenci a správě denních úkolů. Uživatel si může přidávat, upravovat a označovat úkoly jako splněné, a to přímo v prohlížeči bez backendu, díky Blazor WebAssembly.
+    </p>
+
+    <h3>Hlavní funkce</h3>
+    <ul>
+      <li>✅ Přidávání úkolů s názvem, popisem a datem</li>
+      <li>📂 Filtrování úkolů podle dne, zítřka, týdne nebo vlastního data</li>
+      <li>🔁 Označování úkolů jako splněné/nesplněné</li>
+      <li>🗑️ Odstraňování úkolů</li>
+      <li>✏️ Možnost úpravy existujících úkolů</li>
+      <li>🎨 Moderní a responzivní uživatelské rozhraní</li>
+    </ul>
+
+    <h3>Technologie</h3>
+    <ul>
+      <li>Blazor WebAssembly (C#)</li>
+      <li>Razor Pages</li>
+      <li>CSS pro vlastní stylování komponent</li>
+    </ul>
+  `
+    }
 ];
 
 const projectList = document.getElementById("project-list");
