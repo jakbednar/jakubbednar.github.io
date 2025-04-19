@@ -65,34 +65,37 @@ UV index: 3
     `
   },
     {
-        title: "Daily Planner - Blazor WebApp",
-        image: "images/image.jfif",
-        description: "Webová aplikace postavená na Blazor WebAssembly pro plánování každodenních úkolů.",
-        github: "https://github.com/jakbednar/DailyPlanner",
-        details: `
-    <h3>O projektu</h3>
-    <p>
-      Aplikace <strong>Daily Planner</strong> slouží k evidenci a správě denních úkolů. Uživatel si může přidávat, upravovat a označovat úkoly jako splněné, a to přímo v prohlížeči bez backendu, díky Blazor WebAssembly.
-    </p>
+  title: "Daily Planner - Blazor WebApp",
+  image: "images/image.jfif",
+  description: "Webová aplikace v Blazoru pro plánování denních úkolů s možností filtrování, tagování a označování jako splněné.",
+  github: "https://github.com/jakbednar/DailyPlanner",
+  details: `
+  <h3>O projektu</h3>
+  <p>
+    <strong>Daily Planner</strong> je single-page webová aplikace postavená na Blazor WebAssembly (C#), která umožňuje uživatelům efektivně plánovat každodenní úkoly.
+    Projekt běží čistě na frontendu bez nutnosti backendu, což umožňuje rychlý běh přímo v prohlížeči.
+  </p>
 
-    <h3>Hlavní funkce</h3>
-    <ul>
-      <li>✅ Přidávání úkolů s názvem, popisem a datem</li>
-      <li>📂 Filtrování úkolů podle dne, zítřka, týdne nebo vlastního data</li>
-      <li>🔁 Označování úkolů jako splněné/nesplněné</li>
-      <li>🗑️ Odstraňování úkolů</li>
-      <li>✏️ Možnost úpravy existujících úkolů</li>
-      <li>🎨 Moderní a responzivní uživatelské rozhraní</li>
-    </ul>
+  <h3>Hlavní funkce</h3>
+  <ul>
+    <li>✅ Přidávání úkolů s názvem, popisem, datem a volitelným tagem</li>
+    <li>🏷️ Vlastní systém tagů s možností přidávat a mazat tagy</li>
+    <li>📂 Filtrování úkolů podle data (dnes, zítra, do 3/7 dnů, vlastní datum)</li>
+    <li>🔎 Filtrování úkolů podle tagu</li>
+    <li>🗑️ Odstraňování a ✏️ úprava úkolů</li>
+    <li>✅ Označování jako splněné/nesplněné</li>
+    <li>🎨 Vlastní stylování, čistý a responzivní design bez frameworků</li>
+  </ul>
 
-    <h3>Technologie</h3>
-    <ul>
-      <li>Blazor WebAssembly (C#)</li>
-      <li>Razor Pages</li>
-      <li>CSS pro vlastní stylování komponent</li>
-    </ul>
+  <h3>Technologie</h3>
+  <ul>
+    <li>Blazor WebAssembly (.NET 8, C#)</li>
+    <li>Razor komponenty</li>
+    <li>Vlastní CSS bez externích knihoven</li>
+  </ul>
   `
-    }
+}
+
 ];
 
 const projectList = document.getElementById("project-list");
